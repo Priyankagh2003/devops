@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Engineering new page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    .images{
+        float :right;
+        width: 40%;
+        height: auto;
+        margin:25px;
+        border-radius: 5px;
+        transition: 500ms linear; 
+    }
+    .images:hover{
+        transform: scale(1.07);
+    }
+
+    .para{
+        font-family: sans-serif;
+        font-size: 18px;
+        padding: 20px;
+        text-align: justify;
+    }
+    .tables, td{
+        font-family: sans-serif;
+        font-size: 22px;
+        border:1px solid;
+        padding: 10px;
+    }
+    .tables{
+        margin:20px;
+        margin-bottom: 5px;
+    }
+.tables tr:nth-child(even) {
+     background-color: #D6EEEE;
+}
+
+#formstyle{
+        visibility: hidden;
+        z-index:3000;
+        position: absolute;
+        text-align: center;
+      }
+
+      
+      #formstyle div {
+        width: auto;
+        height: auto;
+        margin: 100px auto;
+        background-image: linear-gradient(to right, lightblue, rgb(12, 243, 12));
+        /* background-image: linear-gradient(lightblue, darkblue);  */
+        border-radius: 10px;
+        /* -webkit-border-radius: 10px; */
+        border-radius: 10px;
+        border: 1px solid #666666;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        /* border: 3px solid #cccccc; */
+        position: absolute;
+        left: 30%;
+        top: 100px;}
+h1{
+    text-align: center;
+}
+h3{
+    font-size: 20px;
+    margin:10px;
+}
+h2{
+    font-size:25px;
+    margin: 15px;
+}
+
+button{
+    background-color: bisque; font-size: 15px;border-radius: 3px;
+    margin: 20px;
+    margin-top: 10px;
+    padding:5px;
+}
+</style>
+<body>
+    <header class="header">
+  
+        <a href="#" class="logo"> <i class="fas fa-lightbulb"></i> CAREER MAKERS </a>
+      
+        <nav class="navbar">
+          <div id="close-navbar" class="fas fa-times"></div>
+          <a href="home.html">home</a>
+          <a href="about.html">about</a>
+          <a href="courses.html">courses</a>
+          <a href="contact.html">contact</a>
+        </nav>
+      
+        <div class="icons">
+          <div id="account-btn" class="fas fa-user"></div>
+          <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+      
+      </header>
+    
+      <div class="account-form">
+
+        <div id="close-form" class="fas fa-times"></div>
+  
+        <div class="buttons">
+           <span class="btn active login-btn">login</span>
+           <span class="btn register-btn">register</span><br>
+           <br>
+           <span class = "btn login-admin-btn">Login as Admin</span>
+        </div>
+  
+        <form name="myform" class="login-form active" onsubmit="return validate()">
+           <h3>login now</h3>
+           <input type="email" name = "email"placeholder="enter your email" class="box">
+           <input type="password" name = "password" placeholder="enter your password" class="box">
+           <div class="flex">
+              <input type="checkbox" name="" id="remember-me">
+              <label for="remember-me">remember me</label>
+              <a href="#">forgot password?</a>
+           </div>
+           <button type="submit" class="btn" id = "login" name="register_btn"><a href = "./home.html">Login</a></button>
+  
+        </form>
+  
+        <form name="myform" id = "login1"class="register-form" onsubmit="return validate()" method="post">
+           <h3>register now</h3>
+           <input type="email" name = "email"placeholder="enter your email" class="box">
+           <input type="password" name = "password"placeholder="enter your password" class="box">
+           <input type="password" placeholder="confirm your password" class="box">
+           <input type="submit" value="register now" class="btn">
+           <!-- <button type="submit" class="btn" id = "login" name="register_btn"><a href = "./User/userhome.html">Register</a></button> -->
+  
+        </form>
+  
+        <form name="myform" class = "login-admin-form" action="" onsubmit="return validate()">
+           <h3>login now</h3>
+           <input type="email" name = "email" id = "email_id" placeholder="enter your email" class="box">
+           <input type="password" name = "password" id = "pwd" placeholder="enter your password" class="box">
+           <div class="flex">
+              <input type="checkbox" name="" id="remember-me">
+              <label for="remember-me">remember me</label>
+              <a href="#">forgot password?</a>
+           </div>
+           <button type="submit" class="btn" id = "butn"  name="register_btn"><a href = "#" onclick='compare()'>Login as admin</a></button>
+        </form>
+  
+  
+        <script>
+           function validate(){  
+              let x = document.getElementById('login1');
+              let name = x.email.value;
+     //  var name=document.forms["myform"]["email"].value;  
+         var password=document.myform.password.value;  
+              
+        if (name==null || name==""){  
+      alert("Email id can't be blank"); 
+      return false;  
+    }else if(password.length<6){  
+      alert("Password must be at least 6 characters long.");  
+      return false;  
+      }  
+    } 
+        </script>
+       
+  
+     </div>
+<!-- 
+    <button class="btn"><a href="#" onclick="example()">
+        +Add College</a></button>
+     <div id="formstyle">
+     <div>
+     <form>
+            <br>
+            <a href='#' onclick='example()'>Close</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href='#' onclick='example()'>Add</a><br><br>       
+         <label>College Name</label>
+         <input type="text"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Add image</label>&nbsp;<input type="file">
+         <br>
+         <br>
+         <label>About College</label>
+         <input type="text" size="100" >
+         <br><br>
+         <label>About placements</label><input type="text" size="100">
+         <br>
+         <label><h4>UG Courses</h4></label>
+         <br>
+       
+       <label >Course Name</label> <input type="text"><br><br>
+       <label >No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+       <label >Course Name</label> <input type="text"><br><br>
+       <label >No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+ 
+      <label><h4>PG Courses</h4></label>
+       <br>
+       
+       <label >Course Name</label> <input type="text"><br><br>
+       <label >No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+       <label >Course Name</label> <input type="text"><br><br>
+       <label >No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+     
+ 
+     </form> 
+          
+     </div>
+    <script>
+      function example() {
+        var el = document.getElementById("formstyle");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+        
+      }
+    </script>
+    </div> -->
+    
+   
+    <h2>1 . Bangalore Medical College And Research Institute</h2>
+    <img class = "images"src="./Images/bmc.webp">
+    <p class="para">Bangalore Medical College and Research Institute (BMCRI) was set up in 1955 by the Mysore Education Society. Originally part of the        Mysore   University and Bangalore University, the institute later got affiliated to the Rajiv Gandhi University of Health Sciences. The institute has got recognition from the Medical Council of India for undergraduate, postgraduate, and diploma courses.
+
+    The courses offered by BMCRI are MBBS, MD, MS, B.Sc. Nursing, M.Sc. Nursing, DM and M.Ch. Aside from this, it also offers various diploma programs. 
+        
+    Admissions to the courses will be based on respective entrance examinations. The institute has facilities like hostels, library, and research center. </p>
+    <h3>-UG Courses</h3>
+    <table class="tables" id = "ugtab1">
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>M.B.B.S</td>
+            <td>250</td>
+        </tr>
+
+    </table>
+    <!-- <button onclick="get_ip1()">ADD COURSE</button>
+    <button onclick = "delete_ug1()">Delete course</button> -->
+    <br>
+    <h3>-PG Courses</h3>
+    <table class="tables" id = table1>
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>MD General Medicine</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>MS General Surgery</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>MD Physiology</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>MD Pediatrics</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>MS Ophthalmology</td>
+            <td>10</td>
+        </tr>
+    </table>
+    <!-- <button onclick="get_input1()">ADD COURSE</button>
+    <button onclick = "delete_pg1()">Delete course</button> -->
+
+    <h2></h2>
+<!-- <script>
+    function get_input1()
+    {
+        let t = document.getElementById('table1');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                 const cellText = document.createTextNode(`${y}`);
+                 cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+
+    function get_ip1()
+    {
+        let t = document.getElementById('ugtab1');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                 const cellText = document.createTextNode(`${y}`);
+                 cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+
+    function delete_pg1()
+    {  
+    let arts1= document.getElementById('table1');
+    arts1.deleteRow(1);
+    }
+    function delete_ug1()
+    {  
+    let arts1= document.getElementById('ugtab1');
+    arts1.deleteRow(1);
+    }
+</script> -->
+
+
+
+<h2> 2 . Rajarajeshwari Medical College And Hospital (RRMCH)</h2>
+    <img class = "images"src="./Images/raj2.webp">
+    <p class="para">The Rajarajeswari Medical College and Hospital (RRMCH) was set up by the Moogambigai Charitable and Educational Trust and is situated on Mysore Road Bangalore. The Moogambigai Charitable and Educational Trust serves to develop as a renowned educational institution in the fields of Engineering, Medicine, Dental, Paramedical, Management and other sciences with a special infrastructure for health related issues. The Rajarajeswari Medical College and Hospital[1] (RRMCH) firmly commits itself to establish medical and paramedical excellence all over the state of Karnataka. </p>
+    <h3>-UG Courses</h3>
+    
+    <table class="tables" id = "ugtab">
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>M.B.B.S</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>BDS</td>
+            <td>100</td>
+        </tr>
+    </table>
+    <br>
+    <!-- <button onclick="get_ip()">ADD COURSE</button>
+    <button onclick = "delete_ug2()">Delete course</button> -->
+    <br>
+    <h3>-PG Courses</h3>
+    <table class="tables" id = table2>
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>MD – Dermatology, Venereology & Leprosy</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>MS General Surgery</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>MD Physiology</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>MD Pediatrics</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>MS Ophthalmology</td>
+            <td>8</td>
+        </tr>
+    </table>
+    <!-- <button onclick="get_input2()">ADD COURSE</button>
+    <button onclick = "delete_pg2()">Delete course</button> -->
+
+<!-- <script>
+    function get_input2()
+    {
+        let t = document.getElementById('table2');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                 const cellText = document.createTextNode(`${y}`);
+                 cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+</script> -->
+<!-- 
+<script>
+    function get_ip()
+    {
+        let t = document.getElementById('ugtab');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                 const cellText = document.createTextNode(`${y}`);
+                 cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+
+    function delete_pg2()
+    {  
+    let arts1= document.getElementById('table2');
+    arts1.deleteRow(1);
+    }
+    function delete_ug2()
+    {  
+    let arts1= document.getElementById('ugtab');
+    arts1.deleteRow(1);
+    }
+
+</script> -->
+
+
+<h2>3. Vydehi Institute Of Medical Sciences and Research Centre</h2>
+    <img class = "images"src="./Images/vydhehi.jpg">
+    <p class="para">Vydehi Institute of Medical Science and Research Center has prepared students for lives of expanding opportunity, service, and achievement. An independent, comprehensive college, we offer students of many ages and backgrounds purposeful learning for the whole of life.
+
+        The Vydehi Institute of Medical Sciences and Research Center binds itself in the realms of a pleasant and peaceful atmosphere of greenery that is enclosed within the boundaries of sector of Information Technology. The 65 acres campus enjoys a dual benefit of its location by any easy access to the essential facilities from the city as well as avoiding the polluted and rushed areas of the busy city simultaneously. </p>
+    <h3>-UG Courses</h3>
+    
+    <table class="tables" id = "ugtab3">
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>M.B.B.S</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>B.Sc. (Bachelor of Science)</td>
+            <td>100</td>
+        </tr>
+    </table>
+    <!-- <button onclick="get_ip3()">ADD COURSE</button>
+    <button onclick = "delete_ug3()">Delete course</button> -->
+    <br>
+    <h3>-PG Courses</h3>
+    <table class="tables" id = table3>
+        <thead>
+            <tr>
+                <td>Course Name</td>
+                <td>No.of seats</td>
+            </tr>
+        
+        </thead>
+        <tr>
+            <td>MD Pathology</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>MD Microbiology</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>MD General Medicine</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>MD Pediatrics</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>MD Anesthesiology</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <!-- <button onclick="get_input3()">ADD COURSE</button>
+    <button onclick = "delete_pg3()">Delete course</button> -->
+
+
+<!-- <script>
+
+function get_input3()
+    {
+        let t = document.getElementById('table3');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                 const cellText = document.createTextNode(`${y}`);
+                 cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+    
+</script> -->
+<!-- <script>
+    function get_ip3()
+    {
+        let t = document.getElementById('ugtab3');
+        let x = prompt("enter the course name");
+        let y = prompt("enter the no.of seats");
+        const row = document.createElement("tr");
+        for (let j = 0; j < 2; j++) 
+        { if(j==0)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${x}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            if(j==1)
+            {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(`${y}`);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+        }
+       
+        t.appendChild(row);
+    }
+</script> -->
+<!-- <script>
+
+    // document.getElementById('remove1').addEventListener('click',delete_);
+    function delete_pg3()
+    {  
+    let arts1= document.getElementById('table3');
+    arts1.deleteRow(1);
+    }
+    function delete_ug3()
+    {  
+    let arts1= document.getElementById('ugtab3');
+    arts1.deleteRow(1);
+    }
+</script> -->
+<section class="footer">
+      
+    <div class="box-container">
+  
+      <div class="box">
+        <h3> <i class="fas fa-lightbulb"></i> career makers </h3>
+        <p>build your future with us!!!</p>
+        <div class="share">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+        </div>
+      </div>
+  
+      <div class="box">
+        <h3>quick links</h3>
+        <a href="home.html" class="link">home</a>
+        <a href="about.html" class="link">about</a>
+        <a href="courses.html" class="link">courses</a>
+        <a href="contact.html" class="link">contact</a>
+      </div>
+
+<div class="box">
+    <h3>newsletter</h3>
+    <p>subscribe for latest upadates</p>
+    <form action="">
+      <input type="email" name="" placeholder="enter your email" id="" class="email">
+      <input type="submit" value="subscribe" class="btn">
+    </form>
+  </div>
+
+</div>
+
+
+</section>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script src = "login.js"></script>
+</body>
+</html>

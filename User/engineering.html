@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering new page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      #formstyle{
+        visibility: hidden;
+        z-index:3000;
+        position: absolute;
+        text-align: center;
+      }
+
+      
+      #formstyle div {
+        width: auto;
+        height: auto;
+        margin: 100px auto;
+        background-image: linear-gradient(to right, lightblue, rgb(12, 243, 12));
+        border-radius: 10px;
+        /* -webkit-border-radius: 10px; */
+        border-radius: 10px;
+        border: 1px solid #666666;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 15px;
+        /* border: 3px solid #cccccc; */
+        position: absolute;
+        left: 50%;
+        top: 100px;
+/* 
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%); */
+      }
+
+     .body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        
+      }
+
+      footer{
+        margin:0px;
+        padding: 0px;
+      }
+      table tr:nth-child(even) {
+     background-color: #D6EEEE;
+}
+h1{
+    text-align: center;
+}
+h3{
+    font-size: 25px;
+    margin:10px;
+}
+.tables, td{
+        font-family: sans-serif;
+        font-size: 22px;
+        border:1px solid;
+        padding: 10px;
+    }
+
+      .colleges{
+        margin: 100px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      
+      .image {
+        margin-right: 10px;
+        padding: 5px;
+        margin: 25px;
+        border-radius: 20px;
+        border-style:groove;
+        transition: 500ms linear;
+      }
+
+      .image:hover{
+        transform:scale(1.05);
+      }
+      .btno{
+  text-decoration: none;
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+
+#formstyle{
+  z-index: 1000;
+  width: 100%;
+  height:100%;
+  
+}
+
+button{
+    background-color: bisque; font-size: 15px;border-radius: 3px;
+    margin: 20px;
+    margin-top: 10px;
+    padding:5px;
+}
+
+
+</style>
+</head>
+
+
+<body class="body">
+  <header class="header">
+  
+    <a href="#" class="logo"> <i class="fas fa-lightbulb"></i> CAREER MAKERS </a>
+  
+    <nav class="navbar">
+      <div id="close-navbar" class="fas fa-times"></div>
+      <a href="userhome.php">home</a>
+      <a href="about.html">about</a>
+      <a href="courses.html">courses</a>
+      <a href="contact.html">contact</a>
+    </nav>
+  
+    <div class="icons">
+      <div id="account-btn" class="fas fa-user"></div>
+      <div id="menu-btn" class="fas fa-bars"></div>
+    </div>
+  
+  </header>
+
+  <div class="account-form">
+
+    <div id="close-form" class="fas fa-times"></div>
+
+    <div class="buttons">
+       <span class="btn active login-btn">login</span>
+       <span class="btn register-btn">register</span><br>
+       <br>
+       <span class = "btn login-admin-btn">Login as Admin</span>
+    </div>
+
+    <form name="myform" class="login-form active" onsubmit="return validate()">
+       <h3>login now</h3>
+       <input type="email" name = "email"placeholder="enter your email" class="box">
+       <input type="password" name = "password" placeholder="enter your password" class="box">
+       <div class="flex">
+          <input type="checkbox" name="" id="remember-me">
+          <label for="remember-me">remember me</label>
+          <a href="#">forgot password?</a>
+       </div>
+       <button type="submit" class="btn" id = "login" name="register_btn"><a href = "./home.html">Login</a></button>
+
+    </form>
+
+    <form name="myform" id = "login1"class="register-form" onsubmit="return validate()" method="post">
+       <h3>register now</h3>
+       <input type="email" name = "email"placeholder="enter your email" class="box">
+       <input type="password" name = "password"placeholder="enter your password" class="box">
+       <input type="password" placeholder="confirm your password" class="box">
+       <input type="submit" value="register now" class="btn">
+       <!-- <button type="submit" class="btn" id = "login" name="register_btn"><a href = "./User/userhome.html">Register</a></button> -->
+
+    </form>
+
+    <form name="myform" class = "login-admin-form" action="" onsubmit="return validate()">
+       <h3>login now</h3>
+       <input type="email" name = "email" id = "email_id" placeholder="enter your email" class="box">
+       <input type="password" name = "password" id = "pwd" placeholder="enter your password" class="box">
+       <div class="flex">
+          <input type="checkbox" name="" id="remember-me">
+          <label for="remember-me">remember me</label>
+          <a href="#">forgot password?</a>
+       </div>
+       <button type="submit" class="btn" id = "butn"  name="register_btn"><a href = "#" onclick='compare()'>Login as admin</a></button>
+    </form>
+
+
+    <script>
+       function validate(){  
+          let x = document.getElementById('login1');
+          let name = x.email.value;
+ //  var name=document.forms["myform"]["email"].value;  
+     var password=document.myform.password.value;  
+          
+    if (name==null || name==""){  
+  alert("Email id can't be blank"); 
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }  
+} 
+    </script>
+   
+
+ </div>
+  <!-- <button class="btno"><a href="#" onclick="example()">
+      +Add College</a></button>
+  <div id="formstyle">
+    <div>
+      <form>
+        <br>
+        <a href='#' onclick='example()'>Close</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='#' onclick='example()'>Add</a><br><br>
+        <label>College Name</label>
+        <input type="text"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Add image</label>&nbsp;<input
+          type="file">
+        <br>
+        <br>
+        <label>About College</label>
+        <input type="text" size="100">
+        <br><br>
+        <label>About placements</label><input type="text" size="100">
+        <br>
+        <label>
+          <h4>UG Courses</h4>
+        </label>
+        <br>
+  
+        <label>Course Name</label> <input type="text"><br><br>
+        <label>No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+        <label>Course Name</label> <input type="text"><br><br>
+        <label>No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+  
+        <label>
+          <h4>PG Courses</h4>
+        </label>
+        <br>
+  
+        <label>Course Name</label> <input type="text"><br><br>
+        <label>No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+        <label>Course Name</label> <input type="text"><br><br>
+        <label>No of seats</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"><br> <br>
+  
+  
+      </form>
+  
+    </div>
+    <script>
+      function example() {
+        var el = document.getElementById("formstyle");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+
+      }
+    </script>
+  </div> -->
+
+<br>
+<br>
+
+  <div style="position: relative;left:70px">
+    <h1>Engineering colleges</h1>
+  </div>
+  <!--college 1-->
+    <div class="colleges">
+        <h3>BMS College of Engineering</h3>
+        <img class="image" src="./images/bmsce .png" width="1000px" height="250px" />
+        <div class="content">
+          <div>
+              <p>
+               BMS College of Engineering [BMSCE], Bamgalore Karnataka was established in the year 1946 as a Private(Autonomous)
+               Educational institute to provide higher education to build a career in the field of Engineering.BMSCE is approved
+               by the reputed AICTE and COA,accredited by NBA and NAAC and is affiliated to VTU,Belgaum.   
+                </p>
+            </div>  
+      
+             <div>
+              <p>
+              About placements :In the year 2022 Students of BMS College of Engineering got direct campus placements 
+              in top companies like infosys,Wipro,TCS,Accenture,Amazon and more.  
+              </p>
+            </div>
+        </div>
+        
+        
+                <label><h4>UG Courses</h4></label>
+               
+                <table border="1" id = "ugtab1" >
+                   <thead>
+                  <tr>
+                    <th >Course Name</th>
+                    <th >No. of Seats</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Computer Science and Engineering</td>
+                    <td>180</td>
+                  </tr>
+                  <tr>
+                   <td>Information Science and Engineering</td>
+                   <td>180</td>
+                 </tr>
+                 <tr>
+                   <td>Civil Engineering</td>
+                   <td>180</td>
+                 </tr>
+                 <tr>
+                   <td>Mechanical Engineering</td>
+                   <td>180</td>
+                 </tr>
+                 <tr>
+                   <td>Biotechnology</td>
+                   <td>60</td>
+                 </tr>
+                  </tbody>
+                  </table>
+                  <!-- <button onclick="get_ip1()">ADD COURSE</button>
+                  <button onclick = "delete_ug1()">Delete course</button> -->
+
+               <br>
+                <label><h4>PG Courses</h4></label>
+                <br>
+                 <table border="1" id ="table1">
+                   <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>No. of Seats</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>M.Tech</td>
+                    <td>222</td>
+                  </tr>
+                  <tr>
+                   <td>MBA</td>
+                   <td>60</td>
+                 </tr>
+                 <tr>
+                   <td>MCA</td>
+                   <td>30</td>
+                 </tr>
+                
+                 </tbody>
+                 </table>
+                 <!-- <button onclick="get_input1()">ADD COURSE</button>
+                 <button onclick = "delete_pg1()">Delete course</button> -->
+
+    </div>  
+    <!-- <script>
+      function get_input1()
+      {
+          let t = document.getElementById('table1');
+          let x = prompt("enter the course name");
+          let y = prompt("enter the no.of seats");
+          const row = document.createElement("tr");
+          for (let j = 0; j < 2; j++) 
+          { if(j==0)
+              {
+                  const cell = document.createElement("td");
+                  const cellText = document.createTextNode(`${x}`);
+                  cell.appendChild(cellText);
+                  row.appendChild(cell);
+              }
+              if(j==1)
+              {
+                  const cell = document.createElement("td");
+                   const cellText = document.createTextNode(`${y}`);
+                   cell.appendChild(cellText);
+                  row.appendChild(cell);
+              }
+  
+          }
+         
+          t.appendChild(row);
+      }
+  
+      function get_ip1()
+      {
+          let t = document.getElementById('ugtab1');
+          let x = prompt("enter the course name");
+          let y = prompt("enter the no.of seats");
+          const row = document.createElement("tr");
+          for (let j = 0; j < 2; j++) 
+          { if(j==0)
+              {
+                  const cell = document.createElement("td");
+                  const cellText = document.createTextNode(`${x}`);
+                  cell.appendChild(cellText);
+                  row.appendChild(cell);
+              }
+              if(j==1)
+              {
+                  const cell = document.createElement("td");
+                   const cellText = document.createTextNode(`${y}`);
+                   cell.appendChild(cellText);
+                  row.appendChild(cell);
+              }
+  
+          }
+         
+          t.appendChild(row);
+      }
+  
+      function delete_pg1()
+      {  
+      let arts1= document.getElementById('table1');
+      arts1.deleteRow(1);
+      }
+      function delete_ug1()
+      {  
+      let arts1= document.getElementById('ugtab1');
+      arts1.deleteRow(1);
+      }
+  </script>   -->
+
+  <!-- college 2-->
+
+    <div class="colleges">
+      <h3>R.V. College of Engineering</h3>
+      <img class="image" src="./images/rvce (2).png"  />
+      <div class="content">
+        <div>
+            <p>
+             R.V. College of Engineering [RVCE],Bangalore Karnataka was established in the year 1963 as Private
+             (Autonomous) Educational Institute to provide higher education to build a career in the field of Engineering
+             and Computer Applications.RVCE is approved by the reputed AICTE,accredited by NAAC and NBA, and is affiliated 
+             to VTU, Belgaum.       
+              </p>
+          </div>  
+    
+           <div>
+            <p>
+            About placements :In the year 2022 Students of R.V. College of Engineering got direct campus placements 
+            in top companies like infosys,Wipro,Tech Mahindra,Accenture,Genpact and more.  
+            </p>
+          </div>
+      </div>
+      
+     
+              <label><h4>UG Courses</h4></label>
+              
+              <table border="1" id = "ugtab">
+                 <thead>
+                <tr>
+                  <th >Course Name</th>
+                  <th >No. of Seats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Computer Science and Engineering</td>
+                  <td>180</td>
+                </tr>
+                <tr>
+                 <td>Information Science and Engineering</td>
+                 <td>60</td>
+               </tr>
+               <tr>
+                 <td>Civil Engineering</td>
+                 <td>120</td>
+               </tr>
+               <tr>
+                 <td>Mechanical Engineering</td>
+                 <td>120</td>
+               </tr>
+               <tr>
+                 <td>Biotechnology</td>
+                 <td>60</td>
+               </tr>
+                </tbody>
+                </table>
+                <!-- <button onclick="get_ip()">ADD COURSE</button>
+                <button onclick = "delete_ug2()">Delete course</button> -->
+             <br>
+              <label><h4>PG Courses</h4></label>
+              <br>
+              <div class="table">
+               <table border="1" id = "table2">
+                 <thead>
+                <tr>
+                  <th>Course Name</th>
+                  <th>No. of Seats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MCA</td>
+                  <td>60</td>
+                </tr>
+                <tr>
+                 <td>M.Tech</td>
+                 <td>259</td>
+               </tr>
+               </tbody>
+               </table>
+               <!-- <button onclick="get_input2()">ADD COURSE</button>
+               <button onclick = "delete_pg2()">Delete course</button> -->
+
+               <!-- <script>
+                function get_input2()
+                {
+                    let t = document.getElementById('table2');
+                    let x = prompt("enter the course name");
+                    let y = prompt("enter the no.of seats");
+                    const row = document.createElement("tr");
+                    for (let j = 0; j < 2; j++) 
+                    { if(j==0)
+                        {
+                            const cell = document.createElement("td");
+                            const cellText = document.createTextNode(`${x}`);
+                            cell.appendChild(cellText);
+                            row.appendChild(cell);
+                        }
+                        if(j==1)
+                        {
+                            const cell = document.createElement("td");
+                             const cellText = document.createTextNode(`${y}`);
+                             cell.appendChild(cellText);
+                            row.appendChild(cell);
+                        }
+            
+                    }
+                   
+                    t.appendChild(row);
+                }
+            </script> -->
+
+  </div>  
+  <br>
+  <!--College 3-->
+  <div class="colleges" style="margin-left: 10px;" >
+  <h3>PES University</h3>
+        <img class="image" src="./images/PES .png" />
+        <div class="content">
+          <div>
+              <p>
+                PES University [PESU], Bangalore Karnataka was established in the year 1972 as Private University Educational Institute to provide higher education to build a career in the field of Engineering, 
+                Management and Humanities. PESU is approved by the reputed UGC, and is accredited by NAAC.
+                </p>
+            </div>  
+      
+             <div>
+              <p>
+              About placements :In the year 2022 Students of PES University, Bangalore
+               got direct campus placements in top companies like Infosys, IBM, HDFC Bank, Accenture, ICICI Bank and more. 
+              </p>
+            </div>
+         </div>
+        
+        
+    
+                <label><h4>UG Courses</h4></label>
+                <br>
+                <table border="1" id = "ugtab3">
+                   <thead>
+                  <tr>
+                    <th >Course Name</th>
+                    <th >No. of Seats</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Computer Science and Engineering</td>
+                    <td>1440</td>
+                  </tr>
+                  <tr>
+                   <td>Electronics and Communication Engineering</td>
+                   <td>540</td>
+                 </tr>
+                 <tr>
+                   <td>Mechanical Engineering</td>
+                   <td>40</td>
+                 </tr>
+                 <tr>
+                   <td>Biotechnology</td>
+                   <td>60</td>
+                 </tr>
+                  </tbody>
+                  </table>
+                  <!-- <button onclick="get_ip3()">ADD COURSE</button>
+                  <button onclick = "delete_ug3()">Delete course</button> -->
+        <br>
+                <label><h4>PG Courses</h4></label>
+          <br>
+                 <table border="1" id = "table3">
+                   <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>No. of Seats</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>M.Tech</td>
+                    <td>144</td>
+                  </tr>
+                  <tr>
+                   <td>MBA</td>
+                   <td>80</td>
+                 </tr>
+                 <tr>
+                   <td>MCA</td>
+                   <td>240</td>
+                 </tr>
+                 </tbody>
+                 </table>
+                 <!-- <button onclick="get_input3()">ADD COURSE</button>
+                 <button onclick = "delete_pg3()">Delete course</button> -->
+                 <!-- <script>
+
+                  function get_input3()
+                      {
+                          let t = document.getElementById('table3');
+                          let x = prompt("enter the course name");
+                          let y = prompt("enter the no.of seats");
+                          const row = document.createElement("tr");
+                          for (let j = 0; j < 2; j++) 
+                          { if(j==0)
+                              {
+                                  const cell = document.createElement("td");
+                                  const cellText = document.createTextNode(`${x}`);
+                                  cell.appendChild(cellText);
+                                  row.appendChild(cell);
+                              }
+                              if(j==1)
+                              {
+                                  const cell = document.createElement("td");
+                                   const cellText = document.createTextNode(`${y}`);
+                                   cell.appendChild(cellText);
+                                  row.appendChild(cell);
+                              }
+                  
+                          }
+                         
+                          t.appendChild(row);
+                      }
+                      
+                  </script> -->
+                  <!-- <script>
+                    function get_ip3()
+                    {
+                        let t = document.getElementById('ugtab3');
+                        let x = prompt("enter the course name");
+                        let y = prompt("enter the no.of seats");
+                        const row = document.createElement("tr");
+                        for (let j = 0; j < 2; j++) 
+                        { if(j==0)
+                            {
+                                const cell = document.createElement("td");
+                                const cellText = document.createTextNode(`${x}`);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+                            }
+                            if(j==1)
+                            {
+                                const cell = document.createElement("td");
+                                const cellText = document.createTextNode(`${y}`);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+                            }
+                
+                        }
+                       
+                        t.appendChild(row);
+                    }
+                </script> -->
+                <!-- <script>
+
+                  // document.getElementById('remove1').addEventListener('click',delete_);
+                  function delete_pg3()
+                  {  
+                  let arts1= document.getElementById('table3');
+                  arts1.deleteRow(1);
+                  }
+                  function delete_ug3()
+                  {  
+                  let arts1= document.getElementById('ugtab3');
+                  arts1.deleteRow(1);
+                  }
+              </script> -->
+                
+       </div>   
+      <section class="footer">
+      
+        <div class="box-container">
+      
+          <div class="box">
+            <h3> <i class="fas fa-lightbulb"></i> career makers </h3>
+            <p>build your future with us!!!</p>
+            <div class="share">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-twitter"></a>
+              <a href="#" class="fab fa-instagram"></a>
+              <a href="#" class="fab fa-linkedin"></a>
+            </div>
+          </div>
+      
+          <div class="box">
+            <h3>quick links</h3>
+            <a href="userhome.html" class="link">home</a>
+            <a href="about.html" class="link">about</a>
+            <a href="courses.html" class="link">courses</a>
+            <a href="contact.html" class="link">contact</a>
+          </div>
+      
+          <!-- <div class="box">
+               <h3>useful links</h3>
+               <a href="#" class="link">help center</a>
+               <a href="#" class="link">ask questions</a>
+               <a href="#" class="link">send feedback</a>
+               <a href="#" class="link">private policy</a>
+               <a href="#" class="link">terms of use</a>
+            </div> -->
+      
+          <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest upadates</p>
+            <form action="">
+              <input type="email" name="" placeholder="enter your email" id="" class="email">
+              <input type="submit" value="subscribe" class="btn">
+            </form>
+          </div>
+      
+        </div>
+      
+      
+      </section>
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+      
+      <!-- custom js file link  -->
+      <script src="js/script.js"></script>
+      <script src="login.js"></script>
+   
+</body>
+
+</html>
